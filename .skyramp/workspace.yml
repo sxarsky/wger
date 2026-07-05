@@ -1,0 +1,36 @@
+# Skyramp Workspace Configuration
+workspace:
+  repoName: sxarsky/wger
+  repoUrl: https://github.com/sxarsky/wger
+metadata:
+  schemaVersion: v1
+  mcpVersion: v0.2.10-rc.1
+  executorVersion: v1.3.32
+services:
+  - serviceName: wger-backend
+    language: python
+    framework: pytest
+    testDirectory: tests/skyramp
+    api:
+      schemaPath: http://localhost/api/v2/schema
+      authType: token
+      authHeader: Authorization
+      authScheme: Token
+      baseUrl: http://localhost
+    runtimeDetails:
+      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.testbot.yml up -d web
+      runtime: docker
+      dockerNetwork: wger_testbot_network
+  - serviceName: wger-react-frontend
+    repository: sxarsky/wger-react
+    language: typescript
+    framework: playwright
+    testDirectory: tests/skyramp
+    api:
+      authType: none
+      authHeader: ""
+      baseUrl: http://localhost
+    runtimeDetails:
+      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.testbot.yml up -d web
+      runtime: docker
+      dockerNetwork: wger_testbot_network

@@ -1,0 +1,7 @@
+services:
+  web:
+    image: wger/server:pr-build
+  celery_worker:
+    image: wger/server:pr-build
+  celery_beat:
+    image: wger/server:pr-build

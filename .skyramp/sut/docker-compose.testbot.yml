@@ -1,0 +1,45 @@
+name: wger-testbot
+
+services:
+  db:
+    image: postgres:15-alpine
+    env_file:
+      - ./testbot.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wger"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  web:
+    image: wger/server:pr-build
+    env_file:
+      - ./testbot.env
+    volumes:
+      - static:/home/wger/static
+      - media:/home/wger/media
+    ports:
+      - "80:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/api/v2/version/"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 300s
+
+volumes:
+  postgres-data:
+  static:
+  media:
+
+networks:
+  default:
+    name: wger_testbot_network

@@ -1,0 +1,25 @@
+# Layers the locally-built wger-react package on top of the production image.
+#
+# Build sequence (targetSetupCommand):
+#   1. docker build ... -t wger/server:pr-build-intermediate  (production Dockerfile)
+#   2. npm pack ../wger-react --pack-destination .            (produces wger-project-*.tgz)
+#   3. docker build ... -t wger/server:pr-build -f .skyramp/sut/Dockerfile.testbot .
+#   4. rm wger-project-react-components-*.tgz
+#
+# This replaces the npm-registry copy of @wger-project/react-components with
+# the locally-built version from the wger-react checkout, so the running SUT
+# reflects any frontend branch changes. collectstatic on startup picks up the
+# updated build/ assets automatically.
+
+FROM wger/server:pr-build-intermediate
+
+COPY wger-project-react-components-*.tgz /tmp/local-react.tgz
+USER root
+RUN rm -rf /home/wger/src/node_modules/@wger-project/react-components \
+    && mkdir -p /home/wger/src/node_modules/@wger-project/react-components \
+    && tar -xzf /tmp/local-react.tgz \
+         -C /home/wger/src/node_modules/@wger-project/react-components \
+         --strip-components=1 \
+    && rm /tmp/local-react.tgz \
+    && chown -R wger:wger /home/wger/src/node_modules/@wger-project/react-components
+USER wger
