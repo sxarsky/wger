@@ -6,6 +6,7 @@ metadata:
   schemaVersion: v1
   mcpVersion: v0.2.10-rc.1
   executorVersion: v1.3.32
+  updatedAt: "2026-07-05T01:09:32.150Z"
 services:
   - serviceName: wger-backend
     language: python
@@ -27,10 +28,10 @@ services:
     framework: playwright
     testDirectory: tests/skyramp
     api:
-      authType: none
-      authHeader: ""
+      authType: token
+      authHeader: Authorization
+      authScheme: Token
       baseUrl: http://localhost
     runtimeDetails:
-      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.testbot.yml up -d web
-      runtime: docker
-      dockerNetwork: wger_testbot_network
+      serverStartCommand: npm start
+      runtime: local
