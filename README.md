@@ -100,3 +100,5 @@ Translate the app to your language on [Weblate](https://hosted.weblate.org/engag
 * Exercise/Ingredient Data: Creative Commons (see individual entries)
 * Documentation: [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
+
+.. The wger-react frontend adds a /measurement/list route.
