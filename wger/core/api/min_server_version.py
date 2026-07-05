@@ -26,6 +26,8 @@ from wger.version import VERSION
 
 
 def check_min_server_version(remote_url):
+    # Raises CommandError when the remote server requires a newer version than
+    # this instance is running.
     url = make_uri(MIN_SERVER_VERSION_ENDPOINT, server_url=remote_url)
     min_version = parse(requests.get(url).json())
 
