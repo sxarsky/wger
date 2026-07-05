@@ -29,10 +29,34 @@ jobs:
         with:
           app-id: ${{ secrets.SKYRAMP_TESTBOT_APP_ID }}
           private-key: ${{ secrets.SKYRAMP_TESTBOT_APP_PRIVATE_KEY }}
+          repositories: wger,wger-react
 
+      # Multi-repo: primary repo -> ./wger, related frontend -> ./wger-react.
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           fetch-depth: 0
+          filter: blob:none
+          path: wger
+          token: ${{ steps.skyramp-testbot-app-token.outputs.token }}
+
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        id: skyramp-checkout-wger-react
+        continue-on-error: true
+        with:
+          repository: sxarsky/wger-react
+          path: wger-react
+          fetch-depth: 0
+          filter: blob:none
+          ref: ${{ github.head_ref || github.ref_name }}
+          token: ${{ steps.skyramp-testbot-app-token.outputs.token }}
+
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        if: steps.skyramp-checkout-wger-react.outcome == 'failure'
+        with:
+          repository: sxarsky/wger-react
+          path: wger-react
+          fetch-depth: 0
+          filter: blob:none
           token: ${{ steps.skyramp-testbot-app-token.outputs.token }}
 
       - uses: skyramp/testbot@89f8cd799fdbf8ff762568873f52dacab5d3e23f # v0.10.7
