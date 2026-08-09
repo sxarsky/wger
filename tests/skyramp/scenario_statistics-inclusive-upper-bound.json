@@ -1,0 +1,90 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "{\"date\": \"2024-01-31T12:00:00Z\", \"weight\": \"80.00\"}",
+    "ResponseBody": "{\"id\": 1, \"date\": \"2024-01-31T12:00:00Z\", \"weight\": \"80.00\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/weightentry/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:03.807Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-inclusive-upper-bound"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{\"date_from\": \"2024-01-01\", \"date_to\": \"2024-01-31\", \"count\": 1, \"min\": \"80.00\", \"max\": \"80.00\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/weightentry/statistics/",
+    "QueryParams": {
+      "date_from": [
+        "2024-01-01"
+      ],
+      "date_to": [
+        "2024-01-31"
+      ]
+    },
+    "StatusCode": 200,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:04.807Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-inclusive-upper-bound"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/v2/weightentry/1/",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:05.807Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-inclusive-upper-bound"
+  }
+]
