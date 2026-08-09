@@ -59,13 +59,13 @@ jobs:
           filter: blob:none
           token: ${{ steps.skyramp-testbot-app-token.outputs.token }}
 
-      - uses: skyramp/testbot@89f8cd799fdbf8ff762568873f52dacab5d3e23f # v0.10.7
+      - uses: skyramp/testbot@87752cf8ab396b6aa73c47069e79834bd1c75eda # v0.11.5
         with:
           skyrampLicenseFile: ${{ secrets.SKYRAMP_LICENSE_FILE }}
           anthropicApiKey: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
           githubToken: ${{ steps.skyramp-testbot-app-token.outputs.token }}
-          skyrampMcpVersion: 'v0.2.10-rc.1'
-          skyrampExecutorVersion: 'v1.3.32'
+          skyrampMcpVersion: '0.3.2'
+          skyrampExecutorVersion: 'v1.3.37'
           # Multi-repo: primary repo checked out at ./wger, related at ./wger-react.
           workingDirectory: 'wger'
           relatedRepoPaths: |

@@ -16,11 +16,10 @@ services:
       authType: token
       authHeader: Authorization
       authScheme: Token
-      baseUrl: http://localhost
+      baseUrl: http://web:8000
     runtimeDetails:
-      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.testbot.yml up -d web
       runtime: docker
-      dockerNetwork: wger_testbot_network
+      dockerNetwork: wger-testbot_default
   - serviceName: wger-react-frontend
     repository: sxarsky/wger-react
     language: typescript
@@ -29,8 +28,7 @@ services:
     api:
       authType: none
       authHeader: ""
-      baseUrl: http://localhost
+      baseUrl: http://web:8000
     runtimeDetails:
-      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.testbot.yml up -d web
       runtime: docker
-      dockerNetwork: wger_testbot_network
+      dockerNetwork: wger-testbot_default
