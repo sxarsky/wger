@@ -1,0 +1,150 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "{\"date\": \"2024-01-10T12:00:00Z\", \"weight\": \"82.50\"}",
+    "ResponseBody": "{\"id\": 1, \"weight\": \"82.50\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/weightentry/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:09.317Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-aggregation-computation",
+    "UniqueFields": [
+      "date"
+    ]
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "{\"date\": \"2024-01-20T12:00:00Z\", \"weight\": \"80.20\"}",
+    "ResponseBody": "{\"id\": 2, \"weight\": \"80.20\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/weightentry/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:10.317Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-aggregation-computation",
+    "UniqueFields": [
+      "date"
+    ]
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{\"count\": 2, \"min\": \"80.20\", \"max\": \"82.50\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/weightentry/statistics/",
+    "QueryParams": {
+      "date_from": [
+        "2024-01-01"
+      ],
+      "date_to": [
+        "2024-02-01"
+      ]
+    },
+    "StatusCode": 200,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:11.317Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-aggregation-computation"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/v2/weightentry/1/",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:12.317Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-aggregation-computation"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/v2/weightentry/2/",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 8000,
+    "Timestamp": "2026-08-09T22:22:13.317Z",
+    "Scheme": "http",
+    "scenarioName": "statistics-aggregation-computation"
+  }
+]
