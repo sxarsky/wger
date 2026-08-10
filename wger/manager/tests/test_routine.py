@@ -630,3 +630,9 @@ class RoutineLogsAndStatsScopeTestCase(WgerTestCase):
         self.user_login('test')
         response = self.client.get(self.detail_url)
         self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+        self.assertIn('author', data)
+        self.assertIn('username', data['author'])
+        self.assertIn('email', data['author'])
+        self.assertIn('date_joined', data['author'])
