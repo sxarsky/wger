@@ -5,7 +5,8 @@ workspace:
 metadata:
   schemaVersion: v1
   mcpVersion: v0.2.10-rc.1
-  executorVersion: v1.3.32
+  executorVersion: v1.3.37
+  updatedAt: "2026-08-10T00:41:11.846Z"
 services:
   - serviceName: wger-backend
     language: python
