@@ -45,6 +45,8 @@ class RoutineSerializer(serializers.ModelSerializer):
     Routine serializer
     """
 
+    author = serializers.SerializerMethodField()
+
     class Meta:
         model = Routine
         fields = (
@@ -57,7 +59,22 @@ class RoutineSerializer(serializers.ModelSerializer):
             'fit_in_week',
             'is_template',
             'is_public',
+            'author',
         )
+
+    def get_author(self, obj):
+        """
+        Compact summary of the user that created the routine.
+
+        This is convenient for the template browser, where routines shared by
+        other users are listed and the UI shows who put a template together.
+        """
+        user = obj.user
+        return {
+            'username': user.username,
+            'email': user.email,
+            'date_joined': user.date_joined,
+        }
 
     def validate(self, data):
         start = data.get('start') or getattr(self.instance, 'start', None)
