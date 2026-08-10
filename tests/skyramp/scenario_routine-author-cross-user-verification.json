@@ -1,0 +1,86 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "{\"name\": \"Public Template Author Test\", \"start\": \"2024-01-01\", \"end\": \"2024-06-30\", \"is_template\": true, \"is_public\": true}",
+    "ResponseBody": "{\"id\": 1, \"name\": \"Public Template Author Test\", \"is_template\": true, \"is_public\": true, \"author\": {\"username\": \"test\", \"email\": \"test@example.com\", \"date_joined\": \"2024-01-01T00:00:00Z\"}}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/routine/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T01:53:09.117Z",
+    "Scheme": "http",
+    "scenarioName": "routine-author-cross-user-verification",
+    "UniqueFields": [
+      "name"
+    ]
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": 1, \"name\": \"Public Template Author Test\", \"is_template\": true, \"is_public\": true, \"author\": {\"username\": \"test\", \"email\": \"test@example.com\", \"date_joined\": \"2024-01-01T00:00:00Z\"}}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/public-templates/1/",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T01:53:10.117Z",
+    "Scheme": "http",
+    "scenarioName": "routine-author-cross-user-verification"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/v2/routine/1/",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T01:53:11.117Z",
+    "Scheme": "http",
+    "scenarioName": "routine-author-cross-user-verification"
+  }
+]

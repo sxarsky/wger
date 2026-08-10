@@ -49,6 +49,12 @@ class RoutineApiTrainerTestCase(WgerTestCase):
         results = request.json()
         self.assertEqual(results['count'], 4)
 
+        first = results['results'][0]
+        self.assertIn('author', first)
+        self.assertIn('username', first['author'])
+        self.assertIn('email', first['author'])
+        self.assertIn('date_joined', first['author'])
+
     def test_routine_overview_admin(self):
         """An admin can see their own routines"""
 
