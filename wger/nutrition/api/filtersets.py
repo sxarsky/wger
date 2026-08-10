@@ -50,6 +50,7 @@ class LogItemFilterSet(filters.FilterSet):
 class IngredientFilterSet(filters.FilterSet):
     code = filters.CharFilter(method='search_barcode')
     name__search = filters.CharFilter(method='search_name_fulltext')
+    name__regex = filters.CharFilter(method='search_name_pattern')
     language__code = filters.CharFilter(method='search_languagecode')
 
     def search_barcode(self, queryset, name, value):
@@ -101,6 +102,22 @@ class IngredientFilterSet(filters.FilterSet):
             # Explicit order_by('name') because the viewset strips Meta.ordering.
             # Search results are small, so sorting them is cheap.
             return queryset.filter(name__icontains=value).order_by('name')
+
+    def search_name_pattern(self, queryset, name, value):
+        """
+        Regular-expression search on the ingredient name.
+
+        Where ``name__search`` performs a fuzzy/fulltext lookup, this filter lets
+        callers match the name against an explicit, case-insensitive pattern for
+        precise, anchored queries -- e.g. ``^chicken (breast|thigh)$`` or
+        ``yogh?urt``. Intended for advanced clients (importers, bulk tooling)
+        that build the query programmatically.
+        """
+        if not value:
+            return queryset
+
+        # Explicit order_by('name') because the viewset strips Meta.ordering.
+        return queryset.filter(name__iregex=value).order_by('name')
 
     def search_languagecode(self, queryset, name, value):
         """
