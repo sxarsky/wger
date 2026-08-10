@@ -1,0 +1,137 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "{\"exercise\": 1, \"date\": \"2023-06-01T08:00:00Z\", \"weight\": \"60.00\", \"weight_unit\": 2}",
+    "ResponseBody": "{\"id\": 1, \"exercise\": 1, \"date\": \"2023-06-01T08:00:00Z\", \"weight\": \"60.00\", \"weight_unit\": 2}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/workoutlog/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:49:44.164Z",
+    "Scheme": "http",
+    "scenarioName": "exercise-logs-date-ordering"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "{\"exercise\": 1, \"date\": \"2024-01-15T10:00:00Z\", \"weight\": \"80.00\", \"weight_unit\": 2}",
+    "ResponseBody": "{\"id\": 2, \"exercise\": 1, \"date\": \"2024-01-15T10:00:00Z\", \"weight\": \"80.00\", \"weight_unit\": 2}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/workoutlog/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:49:45.164Z",
+    "Scheme": "http",
+    "scenarioName": "exercise-logs-date-ordering"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/exercise/1/logs/",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:49:46.164Z",
+    "Scheme": "http",
+    "scenarioName": "exercise-logs-date-ordering"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/v2/workoutlog/1/",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:49:47.164Z",
+    "Scheme": "http",
+    "scenarioName": "exercise-logs-date-ordering"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/v2/workoutlog/2/",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:49:48.164Z",
+    "Scheme": "http",
+    "scenarioName": "exercise-logs-date-ordering"
+  }
+]
