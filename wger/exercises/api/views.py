@@ -64,6 +64,8 @@ from wger.exercises.models import (
     Translation,
 )
 from wger.exercises.views.helper import StreamVerbs
+from wger.manager.api.serializers import WorkoutLogSerializer
+from wger.manager.models import WorkoutLog
 from wger.utils.cache import CacheKeyMapper
 
 
@@ -154,6 +156,23 @@ class ExerciseViewSet(ModelViewSet):
                 deleted_repr=deleted_repr,
                 model_type='exercise',
             )
+
+    @action(detail=True, url_path='logs')
+    def logs(self, request, pk):
+        """
+        Return the requesting user's logged sets for this exercise
+
+        Lists the workout log entries (weight, repetitions, date, ...) that the
+        user has recorded for this exercise, most recent first. Useful for
+        rendering a per-exercise history or progress chart on the exercise
+        detail page.
+        """
+        exercise = self.get_object()
+
+        logs = WorkoutLog.objects.filter(exercise=exercise).order_by('-date')
+
+        serializer = WorkoutLogSerializer(logs, many=True, context={'request': request})
+        return Response(serializer.data)
 
 
 class ExerciseTranslationViewSet(ModelViewSet):
