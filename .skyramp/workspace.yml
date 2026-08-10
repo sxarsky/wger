@@ -5,7 +5,8 @@ workspace:
 metadata:
   schemaVersion: v1
   mcpVersion: v0.2.10-rc.1
-  executorVersion: v1.3.32
+  executorVersion: v1.3.37
+  updatedAt: "2026-08-10T00:55:10.851Z"
 services:
   - serviceName: wger-backend
     language: python
@@ -23,12 +24,12 @@ services:
   - serviceName: wger-react-frontend
     repository: sxarsky/wger-react
     language: typescript
-    framework: playwright
+    framework: vitest
     testDirectory: tests/skyramp
     api:
-      authType: none
-      authHeader: ""
+      authType: token
+      authHeader: Authorization
       baseUrl: http://web:8000
     runtimeDetails:
-      runtime: docker
-      dockerNetwork: wger-testbot_default
+      serverStartCommand: npm start
+      runtime: local
