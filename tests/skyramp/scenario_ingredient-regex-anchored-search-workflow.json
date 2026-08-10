@@ -1,0 +1,60 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{\"count\": 1, \"results\": [{\"id\": 2, \"name\": \"Ingredient, test, 2, organic, raw\"}]}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/ingredient/",
+    "QueryParams": {
+      "name__regex": [
+        "^Ingredient"
+      ]
+    },
+    "StatusCode": 200,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:59:51.671Z",
+    "Scheme": "http",
+    "scenarioName": "ingredient-regex-anchored-search-workflow"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "web",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": 2, \"name\": \"Ingredient, test, 2, organic, raw\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/ingredient/2/",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8000,
+    "Timestamp": "2026-08-10T00:59:52.671Z",
+    "Scheme": "http",
+    "scenarioName": "ingredient-regex-anchored-search-workflow"
+  }
+]
